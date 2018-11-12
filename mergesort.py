@@ -79,22 +79,6 @@ def merge(my_list, left, right):
  
     # print("Merge " + str(my_list))      # Delete comment to print when program merges two sublists
 
-
-# Checks that program prints elapsed time right(not -320ms but 780ms)
-def time_check(start, stop):
-    milliseconds = (stop.microsecond - start.microsecond) // 1000
-    seconds = stop.second - start.second
-    minutes = stop.minute - start.minute
-
-    if milliseconds < 0:
-        milliseconds += 1000
-        seconds -= 1
-    if seconds < 0:
-        seconds += 60
-        minutes -= 1 
-
-    return minutes, seconds, milliseconds
-
 def main():
     print("Executed main from mergesort.py")
 
