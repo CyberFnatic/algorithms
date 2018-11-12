@@ -23,7 +23,9 @@ def test_mergesort(my_list):
             if(not element == float(element)):
                 raise ValueError
     except ValueError:
-        print("Sorting was unsuccessful")
+        pass
+    except:
+        print("CONGRATULATIONS you have found bu.. feature from my unbreakable code!\nPlease inform the author how did you do this! :)")
     else:
         if(sorted(my_list) == my_list):
             print("Sorting complete!")
