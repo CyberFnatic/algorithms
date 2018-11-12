@@ -2,8 +2,8 @@
 Title:          Merge sort
 Description:    Algorithm for sorting integers in ascending order
 Author:         Teemu Pätsi
-Date:           11th of November 2018
-Version:        1.0.1
+Date:           12th of November 2018
+Version:        1.1.1
 Python version: 3.6
 Usage:          
     1st way     * Clone this repository
@@ -16,7 +16,8 @@ Usage:
                     --> your_unsorted_list becomes sorted in ascending order
 
 Change log:
-    1.0.1       Added exception handler to ensure list only contains integers or floats
+    1.1.0       Added exception handler to ensure list only contains integers or floats
+    1.1.1       Edited author notes and made some code layout standardizing
 '''
 
 def mergesort(my_list):
@@ -24,17 +25,17 @@ def mergesort(my_list):
     # Exception handler to ensure list only contains integers or floats
     try:
         for element in my_list:
-            if (not element == float(element)):
+            if(not element == float(element)):
                 raise ValueError
     except ValueError:
-        print ("\nFunction mergesort only accepts lists consisting of integers or floats\nSorting was unsuccessful!\n")
+        print("\nFunction mergesort only accepts lists consisting of integers or floats\nSorting was unsuccessful!\n")
     else:
         split(my_list)
 
 # Splits my_list to sorted sublists
 def split(my_list):
    
-    # print ("Split " + str(my_list))       # Delete comment to print whenever program splits list to smaller sublists
+    # print("Split " + str(my_list))       # Delete comment to print whenever program splits list to smaller sublists
 
     # 1 or 0 length my_list/substring is sorted
     if len(my_list) > 1:
@@ -76,11 +77,11 @@ def merge(my_list, left, right):
         j += 1
         k += 1
  
-    # print ("Merge " + str(my_list))      # Delete comment to print when program merges two sublists
+    # print("Merge " + str(my_list))      # Delete comment to print when program merges two sublists
 
 
-# Checks that program prints elapsed time right (not -320ms but 780ms)
-def time_check (start, stop):
+# Checks that program prints elapsed time right(not -320ms but 780ms)
+def time_check(start, stop):
     milliseconds = (stop.microsecond - start.microsecond) // 1000
     seconds = stop.second - start.second
     minutes = stop.minute - start.minute
@@ -97,5 +98,5 @@ def time_check (start, stop):
 def main():
     print("Executed main from mergesort.py")
 
-if (__name__ == '__main__'):
+if(__name__ == '__main__'):
     main()
