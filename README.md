@@ -1,2 +1,2 @@
 # sorting_algorithms
-This repository consist of self-made sorting algorithms
+This repository consist of self-implemented sorting algorithms
