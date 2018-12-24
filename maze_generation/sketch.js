@@ -3,9 +3,10 @@ Title:          Recursive Backtracker
 Description:    Algorithm for generating mazes
 Author:         Teemu Pätsi
 Date:           17th of December 2018
-Version:        1.0.0
+Version:        1.1.0
 Source:         https://en.wikipedia.org/wiki/Maze_generation_algorithm#Recursive_backtracker
 Change log:
+    24th of December: Program now displays correct maze route after generating the maze
 */
 
 var w = 400;
@@ -31,7 +32,6 @@ var unvisitedCells = (w/side) * (h/side);
 // Stack of previously visited cells
 var stack = [];
 
-
 function Cell() {
 
   this.width = side;
@@ -40,6 +40,7 @@ function Cell() {
   this.row;
 
   this.visited = false;
+  this.wrong_route = false;
   this.begin = false;
 
   // Top, Right, Bottom, Left [TRBL]
@@ -52,22 +53,36 @@ function Cell() {
     // x and y coordinates from where to draw rects and lines
     var x = this.col*side;
     var y = this.row*side;
-
-    // Draw visited cells with different color 
+	  	  
     if (this.visited) {
       noStroke();
-      fill('rgba(255,0,232,120)');
+      fill('rgba(180,170,170,120)');
       rect(x, y, side, side);
     }
 
     // Draw start cell with different color
     if (this.begin) {
       noStroke();
-      fill('rgba(100,50,135,100)');
+      fill('rgba(20,240,20,100)');
       rect(x, y, side, side);
     }
 
     // Draws cell's walls
+    this.drawOutline(x, y);
+  }
+  
+  this.show_route = function() {
+  
+    var x = this.col*side;
+    var y = this.row*side;
+
+    // Draw visited cells with different color
+    if (this.wrong_route && this.visited) {
+      noStroke();
+      fill('rgb(240, 10, 10)');
+      rect(x, y, side, side);
+    }
+    
     this.drawOutline(x, y);
   }
 
@@ -284,6 +299,9 @@ function draw() {
 
     // Else if stack is not empty
     else if (stack.length > 0) {
+	
+	  // Cell will be painted red when wrong_route = true
+	  current.wrong_route = true;
 
       // Pop a cell from the stack
       current = stack.pop();
@@ -295,6 +313,9 @@ function draw() {
 
   // Stop loop when maze is ready
   else {
+    cells.forEach(cell => {
+        cell.show_route();
+    })
     console.log("Ready!");
     noLoop();
   }
