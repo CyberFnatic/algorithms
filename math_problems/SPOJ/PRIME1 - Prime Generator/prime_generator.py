@@ -1,3 +1,15 @@
+'''
+Title:          SPOJ --> PRIME1 - Prime Generator
+Description:    Algorithm that finds all prime numbers between two numbers
+Author:         Teemu Pätsi
+Date:           16th of June 2019
+Version:        1.0.0
+Python version: 3.6
+
+Please note this did not pass the test because it is too inefficient.
+I will try to implement this with C++ soon.
+'''
+
 from math import sqrt
 
 # Numbers given to function are 6k +- 1
