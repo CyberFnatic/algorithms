@@ -12,18 +12,18 @@ For every test case print all prime numbers p such that m <= p <= n, one number 
 
 ### Example
 
-**Input:**
-2
-1 10
+**Input:**<br />
+2<br />
+1 10<br />
 3 5
 
-**Output:**
-2
-3
-5
-7
-
-3
+**Output:**<br />
+2<br />
+3<br />
+5<br />
+7<br />
+<br />
+3<br />
 5
 
 **Warning: large Input/Output data, be careful with certain languages (though most should be OK if the algorithm is well designed)**
